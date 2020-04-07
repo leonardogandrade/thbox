@@ -1,0 +1,36 @@
+div .main-container header{
+    display: flex;
+    justify-items: center;
+    justify-content: space-between;    
+    
+    padding : 2px;
+    margin: 0px;
+    background: #fafafa;
+    border: 1px solid #dadada;
+    border-radius: 2px;
+    
+}
+
+div .main-container header img{
+    margin-right: 10px;
+}
+
+div .main-container header img #logout{
+    margin-top: 4px;
+    margin-right: 10px;
+}
+
+div .main-container header span {
+    font-size: 25px;
+    margin-left: 15px;
+    color : #00939a;
+}
+
+div .main-container header button{
+    border: none;
+    background: none;
+}
+
+div .main-container header .homeLink{
+    text-decoration: none;
+}
