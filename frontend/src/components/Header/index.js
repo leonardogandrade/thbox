@@ -3,6 +3,7 @@ import './index.css';
 import logoutImg from '../../img/logout.png';
 import { logout,isAuthenticated } from '../../services/auth';
 import UploadButtom from '../AdminNavBar';
+import logoMajicBox from '../../img/majicbox_2020.png';
 
 export default class Header extends Component{
 
@@ -15,7 +16,7 @@ export default class Header extends Component{
         return(
             <div className='main-container'>
                 <header>
-                    <a href='/' className='homeLink'><span> Minist&eacute;rio da Cidadania e Vale apresentam</span></a>
+                    <a href='/' className='homeLink'><img src={logoMajicBox} alt=''/></a>
                         {
                             isAuthenticated() && <UploadButtom/>
                         }

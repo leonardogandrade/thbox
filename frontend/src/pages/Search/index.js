@@ -1,11 +1,12 @@
 import React,{Component} from 'react';
-import Header from '../../components/Header';
+import {Carousel} from 'react-bootstrap'; 
 import './index.css'
-import api from '../../services/api';
-import mp4Img from '../../img/mp4.png';
-import jpgImg from '../../img/jpg.png';
-import pdfImg from '../../img/pdf.png';    
-import footerLogo from '../../img/footer.jpg';
+import api from '../../services/api';   
+import logoMajicBox from '../../img/majicbox_2020.png';
+import ActionCarousel from '../../components/ActionCarousel';
+import HighlightCarousel from '../../components/HighlightCarousel';
+import Footer from '../../components/Footer';
+
 export default class Search extends Component{
 
     state = {
@@ -59,22 +60,32 @@ export default class Search extends Component{
     render(){
         //const {page,docs} = this.state;
         return(
-            <div>
-                <Header/>
-                <div className='description'>Centro de Memória</div>
-                <form onSubmit={this.handleSubmit}>
-                    
-                    <input 
-                        type='text' 
-                        name='search' 
-                        onChange = {this.handleOnChange}
-                        value={this.state.search}
-                        placeholder='digite sua pesquisa...'/>
-                    <input type='submit' hidden/>
-                </form>
+            <div className='main-container'>
+                
+                <div className='main-header'>
+                    <div className='header_'>
+                        <img className='logo' alt='' src={logoMajicBox}/>
+
+                        <form onSubmit={this.handleSubmit}>              
+                            <input className='search'
+                                type='text' 
+                                name='search' 
+                                onChange = {this.handleOnChange}
+                                value={this.state.search}
+                                placeholder='digite sua pesquisa...'/>
+                            <input type='submit' hidden/>
+                        </form>                          
+                    </div>
+                </div>
 
                 <div className='resultList'>
-                    {this.state.docs.map(docsRes =>
+
+                <HighlightCarousel/>
+                <ActionCarousel/>
+                <ActionCarousel/>
+                <ActionCarousel/>
+
+                    {/* {this.state.docs.map(docsRes =>
                         <article className='card' key={docsRes._id}>
                             {
                                 (docsRes.image).match('jpg') && <img src={jpgImg} alt=''/>
@@ -90,15 +101,14 @@ export default class Search extends Component{
                                 <div className='info'> {docsRes.info}</div>
                             </div>
                         </article>    
-                    )}
+                    )} */}
                </div>
                 <div className='actions'>
                     {/* <button disabled={page===1}onClick={this.prevPage}>Anterior</button>
                     <button disabled={page === docs.pages} onClick={this.nextPage}>Próximo</button> */}
                 </div>
-                <div className='footer'>
-                    <img className='footerImg' alt='' src={footerLogo}/>
-                </div>
+
+                <Footer/>
             </div>
         )
     }

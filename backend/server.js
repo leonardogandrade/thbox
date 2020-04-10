@@ -21,8 +21,8 @@ requireDir('./src/models');
 app.use(cors());
 app.use(express.json())
 
-app.use('/files',express.static(path.resolve(fileSystem.resized)));
-app.use('/media',express.static(path.resolve(fileSystem.uploads)));
+app.use('/files',express.static(path.resolve(process.env.RESIZED)));
+app.use('/media',express.static(path.resolve(process.env.UPLOADS)));
 
 //Routes
 app.use('/api',require('./src/routes'));
