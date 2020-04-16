@@ -1,11 +1,15 @@
 import React,{Component} from 'react';
-import {Carousel} from 'react-bootstrap'; 
+//import {Carousel} from 'react-bootstrap'; 
 import './index.css'
 import api from '../../services/api';   
 import logoMajicBox from '../../img/majicbox_2020.png';
-import ActionCarousel from '../../components/ActionCarousel';
+import CarouselCategory from '../../components/CarouselCategory';
 import HighlightCarousel from '../../components/HighlightCarousel';
-import Footer from '../../components/Footer';
+// import Footer from '../../components/Footer';
+
+// import mp4Img from '../../img/mp4.png';
+// import jpgImg from '../../img/jpg.png';
+// import pdfImg from '../../img/pdf.png';
 
 export default class Search extends Component{
 
@@ -81,9 +85,8 @@ export default class Search extends Component{
                 <div className='resultList'>
 
                 <HighlightCarousel/>
-                <ActionCarousel/>
-                <ActionCarousel/>
-                <ActionCarousel/>
+                <CarouselCategory category={'Ação'}/>
+                <CarouselCategory category={'Romance'}/>
 
                     {/* {this.state.docs.map(docsRes =>
                         <article className='card' key={docsRes._id}>
@@ -108,7 +111,7 @@ export default class Search extends Component{
                     <button disabled={page === docs.pages} onClick={this.nextPage}>Próximo</button> */}
                 </div>
 
-                <Footer/>
+                {/* <Footer/> */}
             </div>
         )
     }

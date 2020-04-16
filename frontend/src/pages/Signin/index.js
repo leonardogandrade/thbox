@@ -2,7 +2,7 @@ import React,{Component} from 'react';
 import api from '../../services/api';
 import { login } from '../../services/auth';
 import './index.css';
-import logo from '../../img/valeBig.png';
+import logo from '../../img/box_bg.png';
 
 export default class Signin extends Component{
     state = {

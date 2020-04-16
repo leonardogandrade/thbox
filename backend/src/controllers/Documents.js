@@ -6,20 +6,22 @@ const fileSystem = require('../../fileSystem.json');
 
 module.exports = {
     async store(req,res){
-        const {author,date,title,info,place,abstract} = req.body;
-        const {filename : image} = req.file;
-        
-        const [name,ext] = image.split('.');
-        const filename = `${name}.${ext}`
+        const {author,date,title,info,place,abstract,category} = req.body;
+        const {image,video} = req.files;
+        console.log(video[0]);
+        const [Iname,Iext] = image[0].filename.split('.');
+        const fileImage = `${Iname}.${Iext}`;
 
-        if(ext.match(/[jJ][pP][gG]/g)){
-            await sharp(req.file.path)
-            .resize(800)
+        const [Vname,Vext] = video[0].filename.split('.');
+        const fileVideo = `${Vname}.${Vext}`;
+
+        if(Iext.match(/[jJ][pP][gG]/g) || Iext.match(/[pP][nN][gG]/g)){
+            await sharp(image[0].path)
+            .resize(355,200)
             .jpeg({quality : 80})
             .toFile(
-                path.resolve(fileSystem.uploads, 'resized', filename.toLowerCase().split(' ').join('_'))
-            )
-            
+                path.resolve(fileSystem.uploads, 'resized', fileImage.toLowerCase().split(' ').join('_'))
+            )        
        }
 
         const upload = await Documents.create({
@@ -28,13 +30,16 @@ module.exports = {
             title,
             info,
             place,
-            image : filename.toLowerCase().split(' ').join('_'),
+            category,
+            video : fileVideo.toLowerCase().split(' ').join('_'),
+            videoDestination : video[0].destination,
+            image : fileImage.toLowerCase().split(' ').join('_'),
+            imageDestination : image[0].destination + '/resized',
             abstract,
-            destination : req.file.destination
         })
 
-        if(ext.match(/[Jj][Pp][Gg]/g)){
-            await fs.unlink(path.resolve(req.file.destination,filename),(err)=>{
+        if(Iext.match(/[jJ][pP][gG]/g) || Iext.match(/[pP][nN][gG]/g)){
+            await fs.unlink(path.resolve(image[0].destination,fileImage),(err)=>{
                 console.log(err);
             });
         }
@@ -44,8 +49,8 @@ module.exports = {
 
     async listAll(req,res){
         try{
-            const {page} = req.query;
-            const docs = await Documents.paginate({},{page, limit : 15 });
+            //const {page} = req.query;
+            const docs = await Documents.find(); //paginate({},{page, limit : 15 });
             return res.json(docs)
         }catch(err){
             console.log(`error while executing listAll method - ${err}`)
@@ -77,6 +82,12 @@ module.exports = {
 
     async listByTitle(req,res){
         const response = await Documents.find({"title" : {$regex: '.*' + req.params.title + '.*', $options: "i" }});
+        console.log(response);
+        return res.json(response);
+    },
+
+    async listByCategory(req,res){
+        const response = await Documents.find({"category" : {$regex: '.*' + req.params.category + '.*', $options: "i" }});
         console.log(response);
         return res.json(response);
     },

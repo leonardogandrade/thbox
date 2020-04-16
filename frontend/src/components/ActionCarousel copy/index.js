@@ -1,6 +1,5 @@
 import React,{Component} from 'react';
 import {Carousel} from 'react-bootstrap';
-
 import './index.css';
 
 import t1 from '../../img/movies/T1.png';
@@ -22,64 +21,64 @@ export default class ActionCarousel extends Component{
                     <Carousel.Item>
                         <div className='row'>
                             <div className='col'>
-                                <img
+                                <a href='/'><img
                                     className="d-block w-100"
                                     src={t1}
                                     alt="First slide"
-                                />
+                                /></a>
                             </div>
                             <div className='col'>
-                                <img
+                            <a href='/'><img
                                     className="d-block w-100"
                                     src={t2}
                                     alt="First slide"
-                                />
+                                /></a>
                             </div>
                             <div className='col'>
-                                <img
+                            <a href='/'><img
                                     className="d-block w-100"
                                     src={t3}
                                     alt="First slide"
-                                />
+                                /></a>
                             </div>
                             <div className='col'>
-                                <img
+                            <a href='/'><img
                                     className="d-block w-100"
                                     src={t4}
                                     alt="First slide"
-                                />
+                                /></a>
                             </div>
                         </div>
                     </Carousel.Item>
                     <Carousel.Item>
                         <div className='row'>
                             <div className='col'>
-                                <img
+                            <a href='/'><img
                                     className="d-block w-100"
                                     src={t5}
                                     alt="First slide"
-                                />
+                                /></a>
                             </div>
                             <div className='col'>
-                                <img
+                            <a href='/'><img
                                     className="d-block w-100"
                                     src={t6}
                                     alt="First slide"
-                                />
+                                /></a>
                             </div>
                             <div className='col'>
-                                <img
+                            <a href='/'><img
                                     className="d-block w-100"
                                     src={t7}
                                     alt="First slide"
-                                />
+                                /></a>
                             </div>
                             <div className='col'>
-                                <img
+                            <a href='/'><img
                                     className="d-block w-100"
                                     src={t8}
                                     alt="First slide"
-                                />
+                                /></a>
                             </div>
                         </div>
                     </Carousel.Item>

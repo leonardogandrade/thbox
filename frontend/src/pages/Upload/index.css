@@ -1,38 +1,62 @@
-form#uploadCard{
+div .data-container{
+    display: flex;
+    flex-direction: row;
+}
+
+div form#uploadCard{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-form#uploadCard input{
-    width: 70%;
+div form#uploadCard input{
+    height: 40px;
+    width: 350px;
     padding: 12px 20px;
     margin: 1%;
     border: 1px solid #ccc;
-    border-radius: 20px;
+    border-radius: 5px;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 26px;
     outline: none;
 }
 
-form#uploadCard textarea{
-    width: 70%;
+.image-upload > input{
+    display: none;
+}
+
+div select{
+    height: 40px;
+    width : 350px;
     padding: 12px 20px;
     margin: 1%;
     border: 1px solid #ccc;
-    border-radius: 20px;
+    border-radius: 5px;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 26px;
     outline: none;
 }
 
-form#uploadCard button{
-    width : 73%;
+div form#uploadCard textarea{
+    height : 200px;
+    width: 350px;
+    padding: 12px 20px;
+    margin: 1%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 26px;
+    outline: none;
+}
+
+div form#uploadCard button{
+    height: 40px;
+    width : 350px;
     padding: 10px 20px;
     border-radius: 4px;
     border: 0;
-    background: #00939a;
+    background: #F2BB05;
     color: #FFF;
     font-size: 14px;
     font-weight: bold;

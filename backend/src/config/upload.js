@@ -7,6 +7,10 @@ module.exports = {
         filename : function(req,file,cb){
             const [name,ext] = file.originalname.split('.')
             cb(null,name + '_' + Date.now() + '.' + ext);
+        },
+        video : function(req,file,cb){
+            const [name,ext] = file.originalname.split('.')
+            cb(null,name + '_' + Date.now() + '.' + ext);
         }
     })
 }

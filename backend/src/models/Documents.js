@@ -9,11 +9,14 @@ const DocumentsSchema = mongoose.Schema({
     info : String,
     image : String,
     abstract : String,
-    destination : String,
+    imageDestination : String,
+    videoDestination : String,
+    category : String,
+    video : String,
 },{
     timestamps : true,
 });
 
-DocumentsSchema.plugin(mongoosePaginate);
+//DocumentsSchema.plugin(mongoosePaginate);
 
 module.exports = mongoose.model('Documents', DocumentsSchema);
